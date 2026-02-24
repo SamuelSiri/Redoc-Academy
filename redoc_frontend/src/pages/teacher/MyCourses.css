@@ -1,0 +1,32 @@
+.myc { padding: 0 0 2rem; }
+.myc-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.myc-head h1 { font-size: 1.5rem; font-weight: 700; color: #111827; margin: 0; }
+
+.myc-empty { text-align: center; padding: 3rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; }
+.myc-empty p { color: #6b7280; margin-bottom: 1rem; }
+
+.myc-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; }
+
+.myc-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+.myc-card-body { padding: 1.25rem; flex: 1; }
+.myc-card-top { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+.myc-card-body h3 { font-size: 1.0625rem; font-weight: 600; color: #111827; margin: 0 0 0.375rem; }
+.myc-card-body p { font-size: 0.8125rem; color: #6b7280; margin: 0 0 0.75rem; line-height: 1.4; }
+
+.myc-meta { display: flex; gap: 1rem; font-size: 0.75rem; color: #9ca3af; }
+
+.myc-status { padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.6875rem; font-weight: 600; }
+.myc-status--draft { background: #fef3c7; color: #d97706; }
+.myc-status--published { background: #dcfce7; color: #16a34a; }
+.myc-status--archived { background: #f3f4f6; color: #6b7280; }
+
+.myc-diff { padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.6875rem; font-weight: 600; background: #ede9fe; color: #7c3aed; }
+
+.myc-card-actions { padding: 0.75rem 1.25rem; border-top: 1px solid #f3f4f6; display: flex; gap: 0.5rem; }
+
+.myc-btn { padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; font-size: 0.8125rem; border: 1px solid #e5e7eb; background: #fff; cursor: pointer; text-decoration: none; color: #374151; display: inline-flex; align-items: center; }
+.myc-btn:hover { background: #f9fafb; }
+.myc-btn--primary { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+.myc-btn--primary:hover { background: #6d28d9; }
+.myc-btn--danger { color: #dc2626; border-color: #fecaca; }
+.myc-btn--danger:hover { background: #fef2f2; }

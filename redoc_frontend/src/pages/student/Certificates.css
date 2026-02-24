@@ -1,0 +1,15 @@
+.cert { padding: 0 0 2rem; }
+.cert h1 { font-size: 1.5rem; font-weight: 700; color: #111827; margin: 0 0 1.5rem; }
+
+.cert-empty { text-align: center; padding: 3rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; }
+.cert-empty svg { margin-bottom: 1rem; }
+.cert-empty p { color: #6b7280; font-size: 0.9375rem; }
+
+.cert-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1rem; }
+
+.cert-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
+.cert-icon { width: 56px; height: 56px; background: #ede9fe; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cert-info { flex: 1; }
+.cert-info h3 { font-size: 1rem; font-weight: 600; color: #111827; margin: 0 0 0.375rem; }
+.cert-code { font-size: 0.8125rem; color: #7c3aed; font-weight: 600; margin: 0 0 0.25rem; font-family: monospace; }
+.cert-date { font-size: 0.8125rem; color: #6b7280; margin: 0; }

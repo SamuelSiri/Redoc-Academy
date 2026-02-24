@@ -1,0 +1,495 @@
+/* ============================================
+   LOGIN — Udemy Style
+   Form LEFT 50% · Abstract Art RIGHT 50%
+   ============================================ */
+
+.lg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* ===== LEFT — FORM ===== */
+.lg-left {
+  width: 50%;
+  min-width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+.lg-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.lg-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.lg-logo-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f0ff;
+  color: #5624d0;
+  border-radius: 8px;
+}
+.lg-logo span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1c1d1f;
+  letter-spacing: -0.3px;
+}
+
+.lg-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1c1d1f;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  margin: 0 0 28px 0;
+}
+
+.lg-google {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #1c1d1f;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1c1d1f;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.lg-google:hover { background: #f5f5f5; }
+.lg-google:active { background: #ebebeb; }
+
+.lg-sep {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+.lg-sep::before, .lg-sep::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #d1d7dc;
+}
+.lg-sep span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #6a6f73;
+}
+
+.lg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.lg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lg-field label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1c1d1f;
+}
+.lg-field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lg-forgot {
+  font-size: 13px;
+  font-weight: 700;
+  color: #5624d0;
+  text-decoration: none;
+}
+.lg-forgot:hover { color: #401b9c; text-decoration: underline; }
+
+.lg-field input,
+.lg-pass-box input {
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  border: 1px solid #1c1d1f;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1c1d1f;
+  background: #ffffff;
+  outline: none;
+  transition: outline 0.12s;
+}
+.lg-field input::placeholder,
+.lg-pass-box input::placeholder { color: #6a6f73; }
+.lg-field input:focus,
+.lg-pass-box input:focus {
+  border-color: #1c1d1f;
+  outline: 2px solid #5624d0;
+  outline-offset: -2px;
+}
+
+.lg-pass-box { position: relative; }
+.lg-pass-box input { padding-right: 52px; }
+.lg-eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6a6f73;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+.lg-eye:hover { color: #1c1d1f; }
+
+.lg-submit {
+  width: 100%;
+  height: 56px;
+  margin-top: 8px;
+  background: #5624d0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.lg-submit:hover:not(:disabled) { background: #401b9c; }
+.lg-submit:active:not(:disabled) { background: #341580; }
+.lg-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.lg-spinner {
+  width: 20px; height: 20px;
+  border: 2.5px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: lgSpin 0.6s linear infinite;
+}
+@keyframes lgSpin { to { transform: rotate(360deg); } }
+
+.lg-footer {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 14px;
+  color: #6a6f73;
+}
+.lg-footer a { color: #5624d0; font-weight: 700; }
+.lg-footer a:hover { color: #401b9c; text-decoration: underline; }
+
+
+/* ==========================================
+   RIGHT — ABSTRACT VIVID SHAPES
+   ========================================== */
+.lg-hero {
+  flex: 1;
+  position: relative;
+  background: #faf9ff;
+  overflow: hidden;
+}
+
+/* Grid */
+.lg-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(86, 36, 208, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(86, 36, 208, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Big circle outline - top right */
+.lg-hero::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 3px solid #7c3aed;
+  top: -50px;
+  right: -30px;
+  animation: lgDrift 20s ease-in-out infinite alternate;
+}
+
+/* Small filled circle */
+.lg-hero::after {
+  content: '';
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #f59e0b;
+  bottom: 16%;
+  left: 10%;
+  animation: lgDrift 14s ease-in-out infinite alternate-reverse;
+}
+
+/* Gradient blobs */
+.lg-hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.lg-hero-orb--1 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
+  top: 22%;
+  right: 18%;
+  animation: lgFloat 18s ease-in-out infinite alternate;
+}
+.lg-hero-orb--2 {
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
+  bottom: 28%;
+  left: 28%;
+  animation: lgFloat 15s ease-in-out infinite alternate-reverse;
+}
+
+/* ==== SHAPES — VIVID COLORS ==== */
+
+/* Triangle 1 - purple filled */
+.lg-shape-tri1 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 38px solid transparent;
+  border-right: 38px solid transparent;
+  border-bottom: 66px solid #7c3aed;
+  top: 14%;
+  left: 22%;
+  animation: lgRotate 25s linear infinite, lgDrift 12s ease-in-out infinite alternate;
+}
+
+/* Triangle 2 - coral/pink */
+.lg-shape-tri2 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid #f43f5e;
+  bottom: 32%;
+  right: 18%;
+  animation: lgRotate 30s linear infinite reverse, lgFloat 10s ease-in-out infinite alternate;
+}
+
+/* Triangle 3 - teal square rotated */
+.lg-shape-tri3 {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background: #06b6d4;
+  border-radius: 4px;
+  top: 55%;
+  left: 42%;
+  transform: rotate(45deg);
+  animation: lgRotate 35s linear infinite, lgDrift 16s ease-in-out infinite alternate-reverse;
+}
+
+/* Circle - indigo outline */
+.lg-shape-circ1 {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid #6366f1;
+  top: 34%;
+  right: 28%;
+  animation: lgFloat 12s ease-in-out infinite alternate, lgScale 20s ease-in-out infinite;
+}
+
+/* Circle - orange dot */
+.lg-shape-circ2 {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f97316;
+  top: 24%;
+  right: 42%;
+  animation: lgDrift 8s ease-in-out infinite alternate;
+}
+
+/* Circle - emerald dot */
+.lg-shape-circ3 {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #10b981;
+  bottom: 42%;
+  left: 34%;
+  animation: lgFloat 10s ease-in-out infinite alternate-reverse;
+}
+
+/* Plus / cross - purple */
+.lg-shape-plus {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  top: 72%;
+  right: 24%;
+  animation: lgRotate 40s linear infinite, lgDrift 14s ease-in-out infinite alternate;
+}
+.lg-shape-plus::before,
+.lg-shape-plus::after {
+  content: '';
+  position: absolute;
+  background: #8b5cf6;
+  border-radius: 2px;
+}
+.lg-shape-plus::before {
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lg-shape-plus::after {
+  width: 4px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Hexagon - rose */
+.lg-shape-hex {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  background: #ec4899;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  top: 46%;
+  left: 14%;
+  animation: lgRotate 22s linear infinite reverse, lgFloat 13s ease-in-out infinite alternate;
+}
+
+/* Book shape - blue outline */
+.lg-shape-book {
+  position: absolute;
+  width: 65px;
+  height: 46px;
+  border: 3px solid #3b82f6;
+  border-radius: 4px 10px 10px 4px;
+  top: 11%;
+  right: 34%;
+  animation: lgDrift 18s ease-in-out infinite alternate;
+}
+.lg-shape-book::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #3b82f6;
+}
+
+/* Dashed ring - violet */
+.lg-shape-ring {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 3px dashed #a78bfa;
+  bottom: 8%;
+  right: 8%;
+  animation: lgRotate 60s linear infinite;
+}
+
+/* Small square - amber */
+.lg-shape-sq {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #f59e0b;
+  border-radius: 3px;
+  top: 66%;
+  left: 56%;
+  animation: lgRotate 18s linear infinite, lgFloat 11s ease-in-out infinite alternate-reverse;
+}
+
+
+/* ===== ANIMATIONS ===== */
+@keyframes lgDrift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(20px, -15px); }
+}
+@keyframes lgFloat {
+  from { transform: translateY(0); }
+  to { transform: translateY(-18px); }
+}
+@keyframes lgRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes lgScale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .lg-left {
+    width: 50%;
+    min-width: 50%;
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 860px) {
+  .lg-hero { display: none; }
+  .lg-left {
+    width: 100%;
+    min-width: 0;
+    background: #f7f7f8;
+  }
+  .lg-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lg-left { padding: 20px 16px; }
+  .lg-card { padding: 28px 24px; }
+  .lg-title { font-size: 24px; margin-bottom: 24px; }
+}

@@ -1,0 +1,322 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  TEACHER
+  ADMIN
+}
+
+enum CourseStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum EnrollmentStatus {
+  ACTIVE
+  COMPLETED
+  DROPPED
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum FileType {
+  PDF
+  VIDEO
+  IMAGE
+  DOCUMENT
+  OTHER
+}
+
+enum MessageStatus {
+  SENT
+  READ
+}
+
+enum Visibility {
+  PUBLIC
+  ENROLLED
+  PRIVATE
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String   @db.VarChar(100)
+  email        String   @unique @db.VarChar(255)
+  password     String?  @db.VarChar(255)
+  role         Role     @default(STUDENT)
+  avatarUrl    String?  @map("avatar_url") @db.Text
+  bio          String?  @db.Text
+  googleId     String?  @unique @map("google_id") @db.VarChar(255)
+  refreshToken String?  @map("refresh_token") @db.Text
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  resources        Resource[]
+  courses          Course[]         @relation("TeacherCourses")
+  enrollments      Enrollment[]
+  lessonProgress   LessonProgress[]
+  reviews          Review[]
+  favorites        Favorite[]
+  downloads        Download[]
+  sentMessages     Message[]        @relation("SentMessages")
+  receivedMessages Message[]        @relation("ReceivedMessages")
+  notifications    Notification[]
+  certificates     Certificate[]
+
+  @@map("users")
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(100)
+  slug        String   @unique @db.VarChar(120)
+  description String?  @db.Text
+  icon        String?  @db.VarChar(50)
+  color       String?  @db.VarChar(20)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  subcategories Subcategory[]
+  courses       Course[]
+
+  @@map("categories")
+}
+
+model Subcategory {
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(100)
+  slug       String   @db.VarChar(120)
+  categoryId Int      @map("category_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  category  Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  resources Resource[]
+  courses   Course[]
+
+  @@unique([slug, categoryId])
+  @@map("subcategories")
+}
+
+model Course {
+  id               Int          @id @default(autoincrement())
+  title            String       @db.VarChar(255)
+  description      String?      @db.Text
+  shortDescription String?      @map("short_description") @db.VarChar(500)
+  thumbnailUrl     String?      @map("thumbnail_url") @db.Text
+  teacherId        Int          @map("teacher_id")
+  categoryId       Int          @map("category_id")
+  subcategoryId    Int?         @map("subcategory_id")
+  difficulty       Difficulty   @default(BEGINNER)
+  status           CourseStatus @default(DRAFT)
+  tags             String[]     @default([])
+  totalDuration    Int          @default(0) @map("total_duration")
+  createdAt        DateTime     @default(now()) @map("created_at")
+  updatedAt        DateTime     @updatedAt @map("updated_at")
+
+  teacher      User          @relation("TeacherCourses", fields: [teacherId], references: [id])
+  category     Category      @relation(fields: [categoryId], references: [id])
+  subcategory  Subcategory?  @relation(fields: [subcategoryId], references: [id])
+  modules      Module[]
+  enrollments  Enrollment[]
+  reviews      Review[]
+  certificates Certificate[]
+
+  @@map("courses")
+}
+
+model Module {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String?  @db.Text
+  order       Int      @default(0)
+  courseId     Int      @map("course_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  course  Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons Lesson[]
+
+  @@map("modules")
+}
+
+model Lesson {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String?  @db.Text
+  content     String?  @db.Text
+  videoUrl    String?  @map("video_url") @db.Text
+  duration    Int      @default(0)
+  order       Int      @default(0)
+  isFree      Boolean  @default(false) @map("is_free")
+  moduleId    Int      @map("module_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  module    Module           @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  resources Resource[]
+  progress  LessonProgress[]
+
+  @@map("lessons")
+}
+
+model Resource {
+  id            Int        @id @default(autoincrement())
+  title         String     @db.VarChar(255)
+  description   String?    @db.Text
+  fileUrl       String     @map("file_url") @db.Text
+  fileType      FileType   @default(OTHER) @map("file_type")
+  fileSize      BigInt?    @map("file_size")
+  mimeType      String?    @map("mime_type") @db.VarChar(100)
+  thumbnailUrl  String?    @map("thumbnail_url") @db.Text
+  originalName  String?    @map("original_name") @db.VarChar(255)
+  downloadCount Int        @default(0) @map("download_count")
+  visibility    Visibility @default(PUBLIC)
+  difficulty    Difficulty?
+  tags          String[]   @default([])
+  teacherId     Int        @map("teacher_id")
+  subcategoryId Int        @map("subcategory_id")
+  lessonId      Int?       @map("lesson_id")
+  createdAt     DateTime   @default(now()) @map("created_at")
+  updatedAt     DateTime   @updatedAt @map("updated_at")
+
+  teacher     User        @relation(fields: [teacherId], references: [id])
+  subcategory Subcategory @relation(fields: [subcategoryId], references: [id])
+  lesson      Lesson?     @relation(fields: [lessonId], references: [id])
+  favorites   Favorite[]
+  downloads   Download[]
+
+  @@map("resources")
+}
+
+model Enrollment {
+  id          Int              @id @default(autoincrement())
+  userId      Int              @map("user_id")
+  courseId     Int              @map("course_id")
+  status      EnrollmentStatus @default(ACTIVE)
+  progress    Float            @default(0)
+  enrolledAt  DateTime         @default(now()) @map("enrolled_at")
+  completedAt DateTime?        @map("completed_at")
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+  @@map("enrollments")
+}
+
+model LessonProgress {
+  id          Int       @id @default(autoincrement())
+  userId      Int       @map("user_id")
+  lessonId    Int       @map("lesson_id")
+  completed   Boolean   @default(false)
+  completedAt DateTime? @map("completed_at")
+
+  user   User   @relation(fields: [userId], references: [id])
+  lesson Lesson @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  rating    Int
+  comment   String?  @db.Text
+  userId    Int      @map("user_id")
+  courseId   Int      @map("course_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+  @@map("reviews")
+}
+
+model Favorite {
+  id         Int      @id @default(autoincrement())
+  userId     Int      @map("user_id")
+  resourceId Int      @map("resource_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  user     User     @relation(fields: [userId], references: [id])
+  resource Resource @relation(fields: [resourceId], references: [id])
+
+  @@unique([userId, resourceId])
+  @@map("favorites")
+}
+
+model Download {
+  id           Int      @id @default(autoincrement())
+  userId       Int      @map("user_id")
+  resourceId   Int      @map("resource_id")
+  downloadedAt DateTime @default(now()) @map("downloaded_at")
+
+  user     User     @relation(fields: [userId], references: [id])
+  resource Resource @relation(fields: [resourceId], references: [id])
+
+  @@map("downloads")
+}
+
+model Message {
+  id         Int           @id @default(autoincrement())
+  subject    String        @db.VarChar(255)
+  content    String        @db.Text
+  senderId   Int           @map("sender_id")
+  receiverId Int           @map("receiver_id")
+  status     MessageStatus @default(SENT)
+  parentId   Int?          @map("parent_id")
+  createdAt  DateTime      @default(now()) @map("created_at")
+  updatedAt  DateTime      @updatedAt @map("updated_at")
+
+  sender   User      @relation("SentMessages", fields: [senderId], references: [id])
+  receiver User      @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  parent   Message?  @relation("MessageReplies", fields: [parentId], references: [id])
+  replies  Message[] @relation("MessageReplies")
+
+  @@map("messages")
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  title     String   @db.VarChar(255)
+  message   String   @db.Text
+  type      String   @default("info") @db.VarChar(50)
+  read      Boolean  @default(false)
+  link      String?  @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("notifications")
+}
+
+model Certificate {
+  id         Int      @id @default(autoincrement())
+  uniqueCode String   @unique @map("unique_code") @db.VarChar(100)
+  userId     Int      @map("user_id")
+  courseId    Int      @map("course_id")
+  issuedAt   DateTime @default(now()) @map("issued_at")
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+  @@map("certificates")
+}

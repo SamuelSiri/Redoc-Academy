@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(tail:*)",
+      "Bash(cd /c/Users/siric/Music/Redoc-Academy/redoc_backend && npx prisma generate 2>&1)",
+      "Bash(cd /c/Users/siric/Music/Redoc-Academy/redoc_backend && npx prisma db push 2>&1)",
+      "Bash(cd /c/Users/siric/Music/Redoc-Academy/redoc_backend && timeout 8 node -e \"\nconst app = require\\('./src/app'\\);\nconsole.log\\('App loaded successfully'\\);\nconsole.log\\('Routes registered'\\);\n\" 2>&1)",
+      "Bash(cd /c/Users/siric/Music/Redoc-Academy/redoc_backend && node prisma/seed.js 2>&1)",
+      "Bash(cd:*)"
+    ]
+  }
+}

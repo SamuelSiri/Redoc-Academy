@@ -1,0 +1,54 @@
+/* MY DOWNLOADS */
+.mdl { width: 100%; }
+
+.mdl-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.mdl-head-left { display: flex; align-items: center; gap: 14px; }
+.mdl-head-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: #2563eb; color: #fff; border-radius: 12px; }
+.mdl-head h1 { font-size: 24px; font-weight: 700; color: #1c1d1f; margin: 0; }
+.mdl-head p { font-size: 14px; color: #6a6f73; margin: 2px 0 0; }
+
+/* Stats */
+.mdl-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+.mdl-stat { padding: 18px; border-radius: 10px; color: #fff; position: relative; overflow: hidden; }
+.mdl-stat::before { content:''; position: absolute; width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.12); top: -12px; right: -12px; }
+.mdl-stat--blue { background: #2563eb; } .mdl-stat--red { background: #dc2626; }
+.mdl-stat--purple { background: #7c3aed; } .mdl-stat--emerald { background: #059669; }
+.mdl-stat strong { display: block; font-size: 24px; font-weight: 800; } .mdl-stat span { font-size: 11px; opacity: 0.8; }
+
+/* Toolbar */
+.mdl-toolbar { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.mdl-search { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 200px; height: 46px; padding: 0 14px; background: #fff; border: 1px solid #d1d5db; border-radius: 6px; }
+.mdl-search svg { color: #9ca3af; flex-shrink: 0; }
+.mdl-search input { border: none; outline: none; font-family: inherit; font-size: 14px; color: #1c1d1f; width: 100%; }
+.mdl-search input::placeholder { color: #9ca3af; }
+.mdl-search:focus-within { border-color: #5624d0; box-shadow: 0 0 0 2px rgba(86,36,208,0.15); }
+.mdl-toolbar select { height: 46px; padding: 0 32px 0 12px; border: 1px solid #d1d5db; border-radius: 6px; font-family: inherit; font-size: 13px; font-weight: 600; color: #1c1d1f; background: #fff; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236a6f73' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; cursor: pointer; outline: none; }
+
+/* List */
+.mdl-list { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+.mdl-item { display: flex; align-items: center; gap: 12px; padding: 14px 18px; transition: background 0.12s; }
+.mdl-item:hover { background: #faf9ff; }
+.mdl-item:not(:last-child) { border-bottom: 1px solid #f3f4f6; }
+
+.mdl-item-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 8px; flex-shrink: 0; }
+.mdl-item-info { flex: 1; min-width: 0; }
+.mdl-item-title { display: block; font-size: 14px; font-weight: 700; color: #1c1d1f; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mdl-item-title:hover { color: #5624d0; }
+.mdl-item-meta { font-size: 11px; color: #9ca3af; }
+.mdl-item-badge { padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; flex-shrink: 0; }
+.mdl-item-date { font-size: 11px; color: #9ca3af; flex-shrink: 0; white-space: nowrap; }
+
+.mdl-item-actions { display: flex; gap: 4px; }
+.mdl-fav, .mdl-re, .mdl-del { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 6px; cursor: pointer; transition: all 0.12s; }
+.mdl-fav { background: #fef2f2; color: #9ca3af; } .mdl-fav:hover { background: #fee2e2; } .mdl-fav--on { color: #dc2626; }
+.mdl-re { background: #eff6ff; color: #2563eb; } .mdl-re:hover { background: #dbeafe; }
+.mdl-del { background: #f3f4f6; color: #9ca3af; } .mdl-del:hover { background: #fee2e2; color: #dc2626; }
+
+.mdl-empty { display: flex; flex-direction: column; align-items: center; padding: 80px 20px; gap: 12px; }
+.mdl-empty p { font-size: 16px; color: #9ca3af; }
+
+@media (max-width: 768px) {
+  .mdl-stats { grid-template-columns: repeat(2, 1fr); }
+  .mdl-item-date { display: none; }
+}
+@media (max-width: 600px) { .mdl-stats { grid-template-columns: 1fr; } }

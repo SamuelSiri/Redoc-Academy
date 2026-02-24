@@ -1,0 +1,35 @@
+.adm { padding: 0 0 2rem; }
+.adm-head h1 { font-size: 1.5rem; font-weight: 700; color: #111827; margin: 0 0 1.5rem; }
+
+.adm-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.adm-stat { background: #fff; border: 1px solid #e5e7eb; border-left: 4px solid; border-radius: 8px; padding: 1.25rem; }
+.adm-stat-value { font-size: 2rem; font-weight: 700; color: #111827; }
+.adm-stat-label { font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem; }
+
+.adm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+.adm-panel { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; }
+.adm-panel h2 { font-size: 1.125rem; font-weight: 600; color: #111827; margin: 0 0 1rem; }
+
+.adm-roles { display: flex; flex-direction: column; gap: 0.75rem; }
+.adm-role { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: #f9fafb; border-radius: 8px; }
+.adm-role-name { font-weight: 500; color: #374151; }
+.adm-role-count { font-weight: 700; color: #7c3aed; font-size: 1.125rem; }
+
+.adm-recent { display: flex; flex-direction: column; gap: 0.5rem; }
+.adm-recent-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem; }
+.adm-recent-avatar { width: 32px; height: 32px; border-radius: 50%; background: #7c3aed; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.8125rem; flex-shrink: 0; }
+.adm-recent-info { flex: 1; }
+.adm-recent-info strong { display: block; font-size: 0.875rem; color: #111827; }
+.adm-recent-info span { font-size: 0.75rem; color: #6b7280; }
+.adm-recent-role { padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.6875rem; font-weight: 600; }
+.adm-recent-role--admin { background: #fef2f2; color: #dc2626; }
+.adm-recent-role--teacher { background: #eff6ff; color: #2563eb; }
+.adm-recent-role--student { background: #ecfdf5; color: #059669; }
+
+.adm-actions { display: flex; gap: 1rem; }
+.adm-action-btn { padding: 0.75rem 1.5rem; background: #7c3aed; color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.875rem; }
+.adm-action-btn:hover { background: #6d28d9; }
+
+@media (max-width: 768px) {
+  .adm-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,477 @@
+/* ============================================
+   REGISTER — Split Layout (matches Login)
+   Form LEFT 50% · Abstract Art RIGHT 50%
+   ============================================ */
+
+.rg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* ===== LEFT — FORM ===== */
+.rg-left {
+  width: 50%;
+  min-width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+.rg-card {
+  width: 100%;
+  max-width: 440px;
+}
+
+.rg-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.rg-logo-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f0ff;
+  color: #5624d0;
+  border-radius: 8px;
+}
+
+.rg-logo span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1c1d1f;
+  letter-spacing: -0.3px;
+}
+
+.rg-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1c1d1f;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  margin: 0 0 6px 0;
+}
+
+.rg-subtitle {
+  font-size: 15px;
+  color: #6a6f73;
+  margin: 0 0 28px 0;
+}
+
+/* Role selection cards */
+.rg-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.rg-role-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 18px;
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.rg-role-card:hover {
+  border-color: #c4b5fd;
+  background: #faf8ff;
+}
+
+.rg-role-card--active {
+  border-color: #5624d0;
+  background: #f5f3ff;
+}
+
+.rg-role-card--active:hover {
+  border-color: #5624d0;
+  background: #f5f3ff;
+}
+
+.rg-role-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rg-role-icon--student {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.rg-role-icon--teacher {
+  background: #f0fdf4;
+  color: #059669;
+}
+
+.rg-role-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.rg-role-text strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1c1d1f;
+  margin-bottom: 2px;
+}
+
+.rg-role-text span {
+  display: block;
+  font-size: 13px;
+  color: #6a6f73;
+  line-height: 1.35;
+}
+
+.rg-role-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.rg-role-check--on {
+  background: #5624d0;
+  border-color: #5624d0;
+}
+
+/* Google button */
+.rg-google {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #5624d0;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.rg-google:hover:not(:disabled) {
+  background: #401b9c;
+}
+
+.rg-google:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.rg-hint {
+  text-align: center;
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 10px;
+}
+
+.rg-footer {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 14px;
+  color: #6a6f73;
+}
+
+.rg-footer a {
+  color: #5624d0;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.rg-footer a:hover {
+  color: #401b9c;
+  text-decoration: underline;
+}
+
+
+/* ==========================================
+   RIGHT — ABSTRACT VIVID SHAPES
+   ========================================== */
+.rg-hero {
+  flex: 1;
+  position: relative;
+  background: #faf9ff;
+  overflow: hidden;
+}
+
+.rg-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(86, 36, 208, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(86, 36, 208, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.rg-hero::before {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 3px solid #059669;
+  bottom: -40px;
+  left: -30px;
+  animation: rgDrift 22s ease-in-out infinite alternate;
+}
+
+.rg-hero::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #3b82f6;
+  top: 18%;
+  right: 12%;
+  animation: rgDrift 16s ease-in-out infinite alternate-reverse;
+}
+
+.rg-hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.rg-hero-orb--1 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  top: 28%;
+  left: 22%;
+  animation: rgFloat 20s ease-in-out infinite alternate;
+}
+
+.rg-hero-orb--2 {
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  top: 55%;
+  right: 18%;
+  animation: rgFloat 17s ease-in-out infinite alternate-reverse;
+}
+
+/* Shapes */
+.rg-shape-tri1 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 32px solid transparent;
+  border-right: 32px solid transparent;
+  border-bottom: 56px solid #059669;
+  top: 16%;
+  right: 28%;
+  animation: rgRotate 28s linear infinite, rgDrift 14s ease-in-out infinite alternate;
+}
+
+.rg-shape-tri2 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 32px solid #7c3aed;
+  bottom: 26%;
+  left: 20%;
+  animation: rgRotate 35s linear infinite reverse, rgFloat 12s ease-in-out infinite alternate;
+}
+
+.rg-shape-tri3 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #f59e0b;
+  border-radius: 4px;
+  top: 48%;
+  right: 42%;
+  transform: rotate(45deg);
+  animation: rgRotate 30s linear infinite, rgDrift 18s ease-in-out infinite alternate-reverse;
+}
+
+.rg-shape-circ1 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #7c3aed;
+  top: 38%;
+  left: 32%;
+  animation: rgFloat 14s ease-in-out infinite alternate, rgScale 22s ease-in-out infinite;
+}
+
+.rg-shape-circ2 {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ec4899;
+  top: 26%;
+  left: 48%;
+  animation: rgDrift 10s ease-in-out infinite alternate;
+}
+
+.rg-shape-circ3 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f97316;
+  bottom: 38%;
+  right: 30%;
+  animation: rgFloat 12s ease-in-out infinite alternate-reverse;
+}
+
+.rg-shape-plus {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 68%;
+  left: 18%;
+  animation: rgRotate 45s linear infinite, rgDrift 16s ease-in-out infinite alternate;
+}
+
+.rg-shape-plus::before,
+.rg-shape-plus::after {
+  content: '';
+  position: absolute;
+  background: #6366f1;
+  border-radius: 2px;
+}
+
+.rg-shape-plus::before {
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.rg-shape-plus::after {
+  width: 4px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rg-shape-hex {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  background: #f43f5e;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  top: 12%;
+  left: 38%;
+  animation: rgRotate 24s linear infinite reverse, rgFloat 15s ease-in-out infinite alternate;
+}
+
+.rg-shape-ring {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px dashed #a78bfa;
+  top: 8%;
+  right: 6%;
+  animation: rgRotate 55s linear infinite;
+}
+
+.rg-shape-sq {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #059669;
+  border-radius: 3px;
+  bottom: 22%;
+  right: 24%;
+  animation: rgRotate 20s linear infinite, rgFloat 13s ease-in-out infinite alternate-reverse;
+}
+
+
+/* Animations */
+@keyframes rgDrift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(18px, -14px); }
+}
+
+@keyframes rgFloat {
+  from { transform: translateY(0); }
+  to { transform: translateY(-16px); }
+}
+
+@keyframes rgRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rgScale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .rg-left {
+    width: 50%;
+    min-width: 50%;
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 860px) {
+  .rg-hero { display: none; }
+  .rg-left {
+    width: 100%;
+    min-width: 0;
+    background: #f7f7f8;
+  }
+  .rg-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+    max-width: 460px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rg-left { padding: 20px 16px; }
+  .rg-card { padding: 28px 24px; }
+  .rg-title { font-size: 24px; }
+}

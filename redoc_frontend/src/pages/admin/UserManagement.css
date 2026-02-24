@@ -1,0 +1,31 @@
+.um { padding: 0 0 2rem; }
+.um-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.um-head h1 { font-size: 1.5rem; font-weight: 700; color: #111827; margin: 0; }
+.um-head span { font-size: 0.875rem; color: #6b7280; }
+
+.um-filters { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+.um-search { display: flex; align-items: center; gap: 0.5rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0 0.75rem; flex: 1; max-width: 300px; }
+.um-search svg { color: #9ca3af; }
+.um-search input { border: none; outline: none; padding: 0.625rem 0; font-size: 0.875rem; width: 100%; }
+.um-filters select { padding: 0.625rem 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 0.875rem; background: #fff; }
+
+.um-table-wrap { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; }
+.um-table { width: 100%; border-collapse: collapse; }
+.um-table th { padding: 0.875rem 1rem; text-align: left; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }
+.um-table td { padding: 0.875rem 1rem; font-size: 0.875rem; color: #374151; border-bottom: 1px solid #f3f4f6; }
+.um-table tr:last-child td { border-bottom: none; }
+
+.um-user { display: flex; align-items: center; gap: 0.5rem; }
+.um-avatar { width: 32px; height: 32px; border-radius: 50%; background: #7c3aed; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.8125rem; }
+
+.um-role-select { padding: 0.375rem 0.5rem; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 0.8125rem; background: #fff; }
+
+.um-status { padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+.um-status--active { background: #dcfce7; color: #16a34a; }
+.um-status--inactive { background: #fef2f2; color: #dc2626; }
+
+.um-actions { display: flex; gap: 0.5rem; }
+.um-action-btn { background: none; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.375rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.um-action-btn:hover { background: #f9fafb; }
+.um-action-btn--danger { color: #dc2626; }
+.um-action-btn--danger:hover { background: #fef2f2; }
